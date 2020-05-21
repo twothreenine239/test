@@ -1,0 +1,14 @@
+@charset "UTF-8";
+@import url("base.css");
+
+/* radio */
+.radio_chk {display:inline-block;position:relative;height:40px;line-height:40px;cursor:pointer;vertical-align:middle;-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none;}
+.radio_chk input {position:absolute;top:0;left:0;opacity:0;cursor:pointer;height:0;width:0;}
+.radio_chk .checkmark {position:absolute;top:0;left:0;height:40px;width:20px;background:url(../images/icon_btn_radio.png) no-repeat center 0;}
+.radio_chk input:checked ~ .checkmark {background-position:center 100%;}
+.radio_chk input:checked ~ .radio_tx {color:#009bfa;}
+.radio_chk .radio_tx {padding:0 40px 0 30px;display:block;line-height:40px;}
+.radio_chk:last-child .radio_tx {padding-right:0;}
+
+.radio_chk.radio_disable {color:#bbb;}
+.radio_chk.radio_disable .checkmark {background:url(../images/icon_btn_radio_disable.png) no-repeat center 0;}
