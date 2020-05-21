@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <script src="js/jquery-3.4.1.min.js"></script>
+
+    <link rel="stylesheet" href="css/common.css">
+
+    <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+</head>
+<body>
+    <input type="hidden" name="dmz_answer_1" class="dmz_answer_1" value="">
+    <input type="hidden" name="dmz_answer_2" class="dmz_answer_2" value="">
+    <input type="hidden" name="dmz_answer_3" class="dmz_answer_3" value="">
+
+    <div class="radio_chk_box">
+        <label class="radio_chk">
+            <input type="radio" name="dmz_1" value="철원">
+            <span class="checkmark"></span>
+
+            <span class="radio_tx">철원</span>
+        </label>
+
+        <label class="radio_chk">
+            <input type="radio" name="dmz_1" value="화천">
+            <span class="checkmark"></span>
+
+            <span class="radio_tx">화천</span>
+        </label>
+
+        <label class="radio_chk">
+            <input type="radio" name="dmz_1" value="양구">
+            <span class="checkmark"></span>
+
+            <span class="radio_tx">양구</span>
+        </label>
+    </div>
+
+    <div class="radio_chk_box">
+        <label class="radio_chk">
+            <input type="radio" name="dmz_2" value="김포">
+            <span class="checkmark"></span>
+
+            <span class="radio_tx">김포</span>
+        </label>
+
+        <label class="radio_chk">
+            <input type="radio" name="dmz_2" value="파주">
+            <span class="checkmark"></span>
+
+            <span class="radio_tx">파주</span>
+        </label>
+
+        <label class="radio_chk">
+            <input type="radio" name="dmz_2" value="연천">
+            <span class="checkmark"></span>
+
+            <span class="radio_tx">연천</span>
+        </label>
+    </div>
+
+    <div class="radio_chk_box">
+        <label class="radio_chk">
+            <input type="radio" name="dmz_3" value="옹진군">
+            <span class="checkmark"></span>
+
+            <span class="radio_tx">옹진군</span>
+        </label>
+
+        <label class="radio_chk">
+            <input type="radio" name="dmz_3" value="강화군">
+            <span class="checkmark"></span>
+
+            <span class="radio_tx">강화군</span>
+        </label>
+    </div>
+
+    <script>
+        Kakao.init('404d875fdc6e7f4df289703bdee76cb6');
+    </script>
+    <div class="kakao">
+        <a href="#">클릭</a>
+    </div>
+
+    <script>
+        $(".radio_chk input[type='radio']").change(function(){
+            var dmz_val = $(this).val();
+            var dmz_num = $(this).attr("name").split("dmz_");
+            dmz_num = dmz_num[1];
+            $(".dmz_answer_" + dmz_num).val(dmz_val);
+        });
+
+        $(".kakao a").click(function(){
+            Kakao.Link.sendCustom({
+                templateId: 25408
+            });
+        });
+
+        
+    </script>
+</body>
+</html>
