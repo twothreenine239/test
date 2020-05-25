@@ -96,7 +96,10 @@
 
         $(".kakao a").click(function(){
             Kakao.Link.sendCustom({
-                templateId: 25408
+                templateId: 25408,
+                templateArgs: {
+                    'imageUrl': 'https://twothreenine239.github.io/test/images/ktshare.jpg'
+                }
             });
         });
 
