@@ -9,6 +9,9 @@
     <script src="js/jquery-3.4.1.min.js"></script>
 
     <link rel="stylesheet" href="css/common.css">
+    <style>
+        .popup {display:none;}
+    </style>
 </head>
 <body>
     <div id="popup200515" class="popup">
@@ -24,15 +27,15 @@
         </div>
 
         <div class="popup200515_btngroup">
-            <a href="javascript:void(0);" class="btn_today" onclick="popToggleToday('#popup200515');"><span class="alt">오늘하루 열지 않기</span></a>
-            <a href="javascript:void(0);" class="btn_close" onclick="popClose('#popup200515');"><span class="alt">닫기</span></a>
+            <a href="javascript:void(0);" class="btn_today" onclick="popToggleToday('#popup200515');"><span>오늘하루 열지 않기</span></a>
+            <a href="javascript:void(0);" class="btn_close" onclick="popClose('#popup200515');"><span>닫기</span></a>
         </div>
     </div>
 
     <script type="text/javascript">
         $(function(){
             console.log(getCookie("popup200515"));
-            if(getCookie("popup200515") != 1){
+            if(getCookie("popup200515") != "1"){
                 $("#popup200515").show();
             }
         });
@@ -47,7 +50,7 @@
 
         function popClose(t_name){
             if($(t_name).find(".btn_today").is(".active") == true){
-                setCookie('popup200515',1,1,false, null);
+                setCookie('popup200515',1,1);
             }
             $(t_name).hide();
         }
